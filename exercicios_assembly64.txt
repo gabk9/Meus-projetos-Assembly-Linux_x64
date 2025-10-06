@@ -1,0 +1,124 @@
+# Lista de 30 Exercícios de Assembly 64-bits (NASM - Linux)
+    
+### Básico e Lógico
+1. Hello World
+   Objetivo: Exibir "Hello World" no console.
+   Dica: Use printf da libc ou syscall write (stdout = 1).
+
+2. Imprimir número fixo
+   Objetivo: Mostrar o número 42 na tela.
+   Dica: Converta inteiro para string e use printf ou write.
+
+3. Somar dois números
+   Objetivo: Somar 5 + 3 e exibir o resultado.
+   Dica: Use rax, rbx e add. Chame printf para mostrar.
+
+4. Subtração simples
+   Objetivo: Calcular 10 - 4 e exibir.
+   Dica: Use sub rax, rbx.
+
+5. Multiplicação
+   Objetivo: Calcular 6 * 7.
+   Dica: Use imul rax, rbx.
+
+6. Divisão inteira
+   Objetivo: Calcular 20 / 3, mostrando quociente e resto.
+   Dica: Use idiv com rax (dividendo) e rdx (resto).
+
+7. AND lógico
+   Objetivo: Fazer 5 AND 3.
+   Dica: Use and rax, rbx.
+
+8. OR e XOR
+   Objetivo: Fazer 5 OR 3 e 5 XOR 3.
+   Dica: Use or rax, rbx e xor rax, rbx.
+
+9. NOT (negação bit a bit)
+   Objetivo: Aplicar not em um número.
+   Dica: Use not rax.
+
+10. Swap de variáveis
+    Objetivo: Trocar os valores de 10 e 20.
+    Dica: Use xchg rax, rbx.
+
+### Estruturas de Controle
+11. Comparação simples
+    Objetivo: Mostrar 1 se a > b, senão 0.
+    Dica: Use cmp e setg.
+
+12. If-Else
+    Objetivo: Verificar se número é par ou ímpar.
+    Dica: Use test rax, 1 e saltos condicionais.
+
+13. Loop com contador
+    Objetivo: Somar números de 1 a 10.
+    Dica: Use dec/jnz ou loop.
+
+14. Fatorial
+    Objetivo: Calcular fatorial de n.
+    Dica: Use loop + imul.
+
+15. Sequência de Fibonacci
+    Objetivo: Mostrar primeiros 10 termos.
+    Dica: Some os dois últimos valores em loop.
+
+16. Maior de dois números
+    Objetivo: Exibir o maior entre a e b.
+    Dica: Use cmp + salto condicional (jg, jl).
+
+17. Máximo de três números
+    Objetivo: Exibir o maior entre a, b e c.
+    Dica: Compare em sequência com cmp + saltos.
+
+18. Soma de array
+    Objetivo: Somar elementos de um vetor de inteiros.
+    Dica: Use índice em rax/rcx e loop até o tamanho.
+
+19. Média de três números
+    Objetivo: Calcular (a+b+c)/3.
+    Dica: Some com add e divida com idiv.
+
+20. Bubble Sort simples
+    Objetivo: Ordenar vetor pequeno de inteiros.
+    Dica: Use dois loops aninhados + cmp + xchg para trocar.
+
+### Manipulação de Dados e Avançado
+21. Conversão para string
+    Objetivo: Converter número inteiro para string decimal.
+    Dica: Use divisões sucessivas por 10 e armazene em buffer.
+
+22. Leitura do teclado
+    Objetivo: Ler caractere digitado.
+    Dica: Use read syscall (stdin = 0) ou scanf da libc.
+
+23. Echo
+    Objetivo: Ler string do usuário e reimprimir.
+    Dica: Buffer + loop até \n, depois write ou printf.
+
+24. Contar vogais em string
+    Objetivo: Contar quantas vogais há em uma frase.
+    Dica: Percorra caractere por caractere usando índices ou ponteiros.
+
+25. Inverter string
+    Objetivo: Reverter "ABC" → "CBA".
+    Dica: Troque os extremos com xchg em loop.
+
+26. Operações com ponto flutuante
+    Objetivo: Somar dois floats.
+    Dica: Use SSE (movss, addss) ou FPU (fld, fadd).
+
+27. Média de notas (float)
+    Objetivo: Calcular média de 3 floats.
+    Dica: Some com SSE/FPU e divida por 3.0.
+
+28. Calculadora simples
+    Objetivo: Receber 2 números e uma operação (+, -, *, /).
+    Dica: Compare operador (cmp) e salte para rotina correspondente.
+
+29. Conversão decimal ↔ hexadecimal
+    Objetivo: Mostrar número em decimal e em hex.
+    Dica: Use divisões por 10 para decimal e 16 para hexadecimal; exiba com printf.
+
+30. Mini jogo: adivinhação
+    Objetivo: O programa escolhe um número, usuário tenta adivinhar.
+    Dica: Gere número pseudo-aleatório (FPU ou libc rand), compare com input em loop até acertar.
